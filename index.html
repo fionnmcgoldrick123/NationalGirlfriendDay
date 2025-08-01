@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy National Girlfriend's Day</title>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(#ffe6f0, #ffcce0);
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    h1 {
+      position: absolute;
+      top: 30px;
+      font-size: 2.5em;
+      color: #ff66b2;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .heart {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+      animation: floatUp linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(110vh);
+      }
+      100% {
+        transform: translateY(-20vh);
+      }
+    }
+
+    .envelope-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      z-index: 10;
+      transition: transform 1s ease-in, opacity 1s ease-in;
+    }
+
+    .envelope-container.hide {
+  opacity: 1;
+  pointer-events: none;
+}
+
+    
+
+    .label {
+      margin-top: 10px;
+      color: #ff4d94;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .letter {
+      position: absolute;
+      bottom: -1000px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 400px;
+      height: 520px;
+      background: #fff8e7;
+      border: 2px solid #ff99cc;
+      padding: 10px;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+      z-index: 10;
+      transition: bottom 1s ease-out;
+    }
+
+    .letter.show {
+      bottom: calc(50% - 260px);
+    }
+
+    .letter textarea {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      resize: none;
+      outline: none;
+      font-size: 18px;
+      color: #cc0066;
+      font-family: 'Patrick Hand', cursive;
+      font-weight: 600;
+      line-height: 1.6;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: left;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      scrollbar-width: thin;
+      scrollbar-color: #ff99cc #ffe6f0;
+    }
+
+    .letter textarea::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .letter textarea::-webkit-scrollbar-thumb {
+      background-color: #ff99cc;
+      border-radius: 5px;
+    }
+
+    .letter textarea::-webkit-scrollbar-track {
+      background-color: #ffe6f0;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy National Girlfriend's Day! 💖</h1>
+  <div class="envelope-container" id="envelope" onclick="openLetter()">
+    <img src="love.png" alt="Cute Envelope" style="width: 200px; " />
+    <div class="label">Click me to open</div>
+  </div>
+  <div class="letter" id="letter">
+    <textarea readonly>Hello Princess,
+
+Happy national girlfriends day my queen. I am so blessed to get the opporutunity to put effort into making you smile. I will put infinites amount of effort into this relationship just to see you smile. You never ever have to do anything my love. You are perfect. Your smile is all the payment that I could ever need. You are more than what I deserve, but you are more than what anyone would deserve. You are the most precious little baby who just deserves love, attention and to be worshipped. While I will never be worthy of you, I am by far the cloest deserving possible. Because I will happily dedicate my entire life into making you happy. I will worship you and spoil you like a true princess and I will make sure that I always grow for you, as you always deserve more.
+
+You are the best girlfriend ever Shayanny. You do not have to change anything. You sitting there and looking hot and beautiful is all you will ever need to do for me. You are already pure, kind and thoughtful. You make more happy than you know. You make everyone more happy than you know. You are a blessing to everyones lives. We are all so blessed to be honored with your presence on Earth. I am the luckiest. Getting to look after you. Getting to make you food, clean after you, make you smile, play games with you, watch shows with you.. do things in bed with you that make your body feel hot and good. I am the luckiest person to ever live because I have you. I am so happy to be your servant forever.
+
+I promise you the world. I promise you I will have hard sleepless nights working towards a life where you can be rich and spoilt and abuse my wallet all you want. I promise to dedicate my mind, body and soul to giving you the most free and beautiful future. I promise. You deserve everything.
+
+Thank you for being my girlfriend. You are the best. I love you. Now and forever</textarea>
+  </div>
+
+  <script>
+    const heartsCount = 40;
+    for (let i = 0; i < heartsCount; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      heart.style.opacity = Math.random() * 0.8 + 0.2;
+      heart.style.top = '100vh';
+      document.body.appendChild(heart);
+    }
+
+    function openLetter() {
+      const envelope = document.getElementById('envelope');
+      const letter = document.getElementById('letter');
+      
+      if (envelope && letter) {
+        
+        letter.classList.add('show');
+      }
+    }
+  </script>
+  
+</body>
+</html>
